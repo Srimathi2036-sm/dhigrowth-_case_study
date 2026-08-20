@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DhiGrowth — Case Study | STARTTEN Time Technology Platform</title>
+    <meta name="description"
+        content="Detailed Case Study of STARTTEN platform developed under DhiGrowth — World's First International Startups Business House & Picosecond Time Technology Prediction Platform.">
+
+    <!-- GOOGLE FONTS: BEBAS NEUE, ZEN DOTS, PLUS JAKARTA SANS & INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Dots&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FONTAWESOME ICON LIBRARY CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CANVAS CONFETTI CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- TAILWIND CUSTOM CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#4A72E8',
+                            sky: '#2196E8',
+                            dark: '#05080c',
+                            slate: '#0f172a',
+                            lightRed: '#fee2e2',
+                            red: '#dc2626'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        heading: ['Bebas Neue', 'sans-serif'],
+                        bebas: ['Bebas Neue', 'sans-serif'],
+                        numeric: ['Zen Dots', 'cursive', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* HERO IMAGE ZOOM IN/OUT ANIMATION */
+        @keyframes heroZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+        .animate-hero-zoom {
+            animation: heroZoom 12s ease-in-out infinite;
+        }
+
+        /* CIRCULAR BOTH SIDES ROTATION ANIMATION FOR CHALLENGES IMAGE */
+        @keyframes circularBothSides {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(180deg) scale(1.05); }
+            50% { transform: rotate(0deg) scale(1); }
+            75% { transform: rotate(-180deg) scale(1.05); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+        .animate-rolling {
+            animation: circularBothSides 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* INFINITE HORIZONTAL MARQUEE ANIMATION FOR TECH STACK */
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 18s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* CONFETTI CANNON PARTICLE ANIMATIONS */
+        @keyframes sideCannonLeft {
+            0% { transform: translate(0, 0) rotate(0deg) scale(0.5); opacity: 1; }
+            50% { transform: translate(38vw, -150px) rotate(360deg) scale(1.2); opacity: 0.95; }
+            100% { transform: translate(65vw, 280px) rotate(720deg) scale(0.3); opacity: 0; }
+        }
+        @keyframes sideCannonRight {
+            0% { transform: translate(0, 0) rotate(0deg) scale(0.5); opacity: 1; }
+            50% { transform: translate(-38vw, -150px) rotate(-360deg) scale(1.2); opacity: 0.95; }
+            100% { transform: translate(-65vw, 280px) rotate(-720deg) scale(0.3); opacity: 0; }
+        }
+        .cannon-particle-left {
+            position: absolute; left: -10px; bottom: 30%;
+            animation: sideCannonLeft 3.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+        }
+        .cannon-particle-right {
+            position: absolute; right: -10px; bottom: 30%;
+            animation: sideCannonRight 3.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- ========================================================================= -->
+    <!-- MAIN NAVBAR (EXACT CODE FROM CLEAN CULTURE PAGE) -->
+    <!-- ========================================================================= -->
+    <header
+        class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-14">
+            <div class="flex justify-between items-center h-26 sm:h-28">
+
+                <!-- DHIGROWTH OFFICIAL BRAND LOGO VIDEO -->
+                <a href="index.html" class="flex items-center group py-1 flex-shrink-0">
+                    <div class="relative flex items-center justify-center bg-transparent flex-shrink-0">
+                        <video id="logoVideo" src="./video/rocket_transparent.webm" autoplay loop muted playsinline
+                            class="h-20 sm:h-24 md:h-28 w-auto max-w-[550px] sm:max-w-[700px] object-contain transition-transform duration-300 group-hover:scale-105"
+                            onloadedmetadata="this.playbackRate = 1.35;">
+                            <source src="./video/rocket_transparent.webm" type="video/webm">
+                        </video>
+                    </div>
+                </a>
+
+                <!-- NAV MENU ITEMS -->
+                <nav class="hidden lg:flex items-center space-x-2 font-semibold text-slate-800 text-base">
+                    <a href="index.html#home"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">Home</a>
+                    <a href="index.html#about"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">About</a>
+                    <a href="index.html#services"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">Services</a>
+                    <a href="index.html#why-us"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">Why Us</a>
+                    <a href="index.html#process"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">Process</a>
+                    <a href="index.html#clients"
+                        class="px-5 py-2.5 hover:text-brand-blue transition-colors rounded-xl hover:bg-slate-100/80">Clients</a>
+
+                    <!-- CASE STUDY DROPDOWN -->
+                    <div class="relative group" id="caseStudyGroup">
+                        <button id="caseStudyBtn"
+                            class="px-5 py-2.5 text-slate-800 hover:text-brand-blue font-bold flex items-center space-x-2 rounded-xl hover:bg-slate-100/80 transition-all cursor-pointer">
+                            <span>Case Study</span>
+                            <i id="caseStudyChevron" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+
+                        <!-- MEGA MENU DROPDOWN PANEL -->
+                        <div id="megaMenuDropdown"
+                            class="mega-menu absolute top-full right-0 lg:-right-20 w-[680px] pt-4 z-50 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                            <div
+                                class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 ring-1 ring-slate-900/5">
+                                <div class="border-b border-slate-100 pb-3 mb-4 flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-heading text-2xl text-slate-900 tracking-wide">Case Studies &
+                                            Success Stories</h4>
+                                        <p class="text-xs text-slate-500">Explore digital transformations and apps built
+                                            by DhiGrowth</p>
+                                    </div>
+                                    <span
+                                        class="text-xs font-numeric font-semibold px-3 py-1 bg-brand-lightBlue/30 text-brand-blue rounded-full border border-brand-blue/20">19
+                                        Projects</span>
+                                </div>
+
+                                <div
+                                    class="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-[380px] overflow-y-auto no-scrollbar">
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Infinite Structure Business</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Akirva</span>
+                                    </a>
+
+                                    <!-- Clean Culture -->
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg bg-emerald-50 border border-emerald-200 font-sans text-sm font-bold text-emerald-900 hover:bg-emerald-100 transition-all flex items-center justify-between">
+                                        <span>Clean Culture</span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Nest Pilot Pg Management software</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Judah https</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Ruts N Rides Website</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Ruts N Rides Admin Software</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Venture Pax</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Befhue</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Squirlio Details</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Amaravati</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Sales App</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Keystone</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Vectra Mechnovation</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Sanika Restaurant</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Thoorigai</span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Giga Bull</span>
+                                    </a>
+
+                                    <!-- Startten -->
+                                    <a href="startten.html"
+                                        class="p-2 rounded-lg bg-red-50 border border-red-200 font-sans text-sm font-bold text-red-900 hover:bg-red-100 transition-all flex items-center justify-between">
+                                        <span>Startten</span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                    </a>
+
+                                    <a href="index.html#clean-culture-section"
+                                        class="p-2 rounded-lg hover:bg-slate-100 font-sans text-sm font-semibold text-slate-800 hover:text-brand-blue transition-all">
+                                        <span>Splendour Park</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- RIGHT CTA BUTTON -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html#contact"
+                        class="hidden sm:inline-flex items-center justify-center px-7 py-3 rounded-full text-base font-bold text-white bg-brand-blue hover:bg-brand-sky hover:shadow-xl hover:shadow-brand-blue/30 hover:scale-105 transition-all duration-300">
+                        Schedule a Free Consultation
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ========================================================================= -->
+        <!-- HERO SECTION: 2-COLUMN LAYOUT WITH SVG ILLUSTRATION ON LEFT -->
+        <!-- ========================================================================= -->
+        <section id="hero" class="relative bg-white py-16 sm:py-24 border-b border-slate-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- 2-COLUMN LAYOUT: LEFT SVG ILLUSTRATION, RIGHT CONTENT -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+                    
+                    <!-- LEFT COLUMN: HERO SECTION SVG ILLUSTRATION -->
+                    <div class="lg:col-span-6 flex justify-center items-center">
+                        <img src="./assets/hero section.svg" alt="STARTTEN Hero Illustration"
+                            class="w-full max-w-lg sm:max-w-xl h-auto object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <!-- RIGHT COLUMN: HERO TYPOGRAPHY, BADGE & CTA CONTAINER -->
+                    <div class="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+                        
+                        <!-- TOP PILL BADGE ABOVE HEADING -->
+                        <div class="inline-flex items-center space-x-2 px-5 py-2 rounded-full bg-[#E61E2B] text-white text-xs sm:text-sm font-bold shadow-md">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>50% Profit Sharing Model</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1E293B] font-sans leading-[1.1] tracking-tight">
+                            Transform Your<br>
+                            Business<br>
+                            <span class="text-[#E61E2B]">Vision into Reality</span>
+                        </h1>
+
+                        <p class="text-slate-500 text-base sm:text-xl font-medium max-w-xl">
+                            Your bring the business idea, <span class="font-bold text-slate-700">STARTTEN</span> bring the investment
+                        </p>
+
+                        <!-- RED BUTTON CTA CONTAINER FROM IMAGE 2 -->
+                        <div class="pt-2 w-full max-w-xl">
+                            <div class="bg-[#E61E2B] p-2.5 sm:p-3.5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl">
+                                <div class="w-full sm:w-auto bg-white px-4 py-2.5 rounded-xl flex items-center justify-center space-x-2 text-[#E61E2B] font-bold text-xs sm:text-sm shadow-sm">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    <span>From Land to Sky Level Business</span>
+                                </div>
+                                <span class="text-white font-black hidden sm:inline text-lg">➔</span>
+                                <div class="w-full sm:w-auto bg-white px-4 py-2.5 rounded-xl flex items-center justify-center space-x-2 text-[#E61E2B] font-bold text-xs sm:text-sm shadow-sm">
+                                    <i class="fa-solid fa-rocket"></i>
+                                    <span>Not Just Innovation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- METRICS CARDS SECTION (SINGLE-LINE ALIGNMENT MATCHING IMAGE 1) -->
+        <!-- ========================================================================= -->
+        <section id="metrics-counter" class="py-16 bg-[#E61E2B] border-b border-red-700 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+
+                    <!-- CARD 1: PROFIT MODEL -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-red-200 shadow-xl shadow-red-100/70 space-y-2 text-left transform transition hover:scale-105">
+                        <div class="text-[#E61E2B] text-xs font-mono font-bold uppercase tracking-wider">PROFIT MODEL</div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans tracking-tight whitespace-nowrap">
+                            <span class="counter-num" data-target="50">0</span>% Share
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium pt-1">Formula 50/50✓ Payouts</div>
+                    </div>
+
+                    <!-- CARD 2: DAILY VOLUME -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-red-200 shadow-xl shadow-red-100/70 space-y-2 text-left transform transition hover:scale-105">
+                        <div class="text-[#E61E2B] text-xs font-mono font-bold uppercase tracking-wider">DAILY VOLUME</div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans tracking-tight whitespace-nowrap">
+                            <span class="counter-num" data-target="144">0</span> Draws
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium pt-1">Every 10 Mins 24×7</div>
+                    </div>
+
+                    <!-- CARD 3: TIME SCIENCE -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-red-200 shadow-xl shadow-red-100/70 space-y-2 text-left transform transition hover:scale-105">
+                        <div class="text-[#E61E2B] text-xs font-mono font-bold uppercase tracking-wider">TIME SCIENCE</div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans tracking-tight whitespace-nowrap">
+                            10⁻¹² Sec
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium pt-1">Picosecond Engine</div>
+                    </div>
+
+                    <!-- CARD 4: STARTUP ECOSYSTEM -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-red-200 shadow-xl shadow-red-100/70 space-y-2 text-left transform transition hover:scale-105">
+                        <div class="text-[#E61E2B] text-xs font-mono font-bold uppercase tracking-wider">STARTUP ECOSYSTEM</div>
+                        <div class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-sans tracking-tight whitespace-nowrap">
+                            <span class="counter-num" data-target="90">0</span>% Fund
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium pt-1">Reinvested in Ventures</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- ABOUT US SECTION -->
+        <!-- ========================================================================= -->
+        <section id="about-us" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- LEFT COLUMN: TITLE IS ONLY "About Us" -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div>
+                            <h2 class="text-5xl sm:text-7xl font-black text-[#E61E2B] font-sans leading-tight tracking-tight">
+                                About Us
+                            </h2>
+                        </div>
+
+                        <p class="text-slate-600 text-lg leading-relaxed font-medium">
+                            STARTTEN is an advanced time-based prediction platform developed under DhiGrowth. Built with picosecond accuracy, transparent ledger tracking, and a unique 50/50 profit sharing model, STARTTEN connects visionary startups with strategic growth capital while providing players with fair, daily prediction contests.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-xl bg-red-100 text-[#E61E2B] flex items-center justify-center font-bold text-sm flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-rocket"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-900">Startup Growth Ecosystem</h4>
+                                    <p class="text-slate-500 text-sm">Reinvesting 90% of platform profits directly into funding early-stage Indian ventures.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-900">Free Franchise System</h4>
+                                    <p class="text-slate-500 text-sm">Empowering partners to build high-yield business networks with zero upfront franchise fees.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: EXACT USER-PROVIDED IMAGE 2 ILLUSTRATION -->
+                    <div class="lg:col-span-6 flex justify-center">
+                        <div class="relative w-full max-w-xl">
+                            <img src="./assets/imagee_copy-removebg-preview.png" alt="Startten System Illustration"
+                                class="w-full h-auto object-contain filter drop-shadow-2xl hover:scale-105 transition-all duration-500">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- CLEAN CULTURE ARC BORDER DIVIDER -->
+        <!-- ========================================================================= -->
+        <div class="w-full overflow-hidden leading-none bg-white -mb-1">
+            <svg class="relative block w-full h-12 sm:h-20 text-slate-950" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,90 900,90 1200,0 L1200,120 L0,120 Z" fill="currentColor"></path>
+            </svg>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- VIDEO SECTION (EXACT CLEAN CULTURE STRUCTURE & VIDEO: PixVerse_V6...mp4) -->
+        <!-- ========================================================================= -->
+        <section id="video-overview" class="w-full bg-slate-950 text-white pb-16 sm:pb-24 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                    <div class="lg:col-span-7">
+                        <div
+                            class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-red-600/40 group">
+                            <video id="cleanCultureVideo" controls autoplay loop muted
+                                class="w-full h-[360px] sm:h-[420px] object-cover bg-black">
+                                <source src="./video/PixVerse_V6_Image_Text_540P_I_didi_t_want_real.mp4"
+                                    type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <button onclick="toggleVideoMute()" title="Toggle Mute / Unmute"
+                                class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-slate-950/80 hover:bg-[#E61E2B] text-white backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg transition-all z-20 hover:scale-110">
+                                <i id="muteIcon" class="fa-solid fa-volume-xmark text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="flex items-center justify-between gap-4">
+                            <h3
+                                class="font-sans text-4xl sm:text-5xl font-extrabold text-white leading-[1.05] tracking-wide">
+                                Experience Startten Platform in Action
+                            </h3>
+                            <img src="./assets/startten_logo_official.png" alt="Startten Logo"
+                                class="w-24 sm:w-28 h-24 sm:h-28 rounded-2xl border-2 border-[#E61E2B] object-cover shadow-xl flex-shrink-0">
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start space-x-3 text-sm text-slate-200">
+                                <i class="fa-solid fa-circle-check text-[#E61E2B] text-lg mt-0.5"></i>
+                                <span class="font-medium">Picosecond-level precision time engine & verified result ledger</span>
+                            </div>
+                            <div class="flex items-start space-x-3 text-sm text-slate-200">
+                                <i class="fa-solid fa-circle-check text-[#E61E2B] text-lg mt-0.5"></i>
+                                <span class="font-medium">Live status pipeline from 10-minute contest draw to instant payout</span>
+                            </div>
+                            <div class="flex items-start space-x-3 text-sm text-slate-200">
+                                <i class="fa-solid fa-circle-check text-[#E61E2B] text-lg mt-0.5"></i>
+                                <span class="font-medium">Daily free lucky prediction draws & 1-tap automated wallet withdrawal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- CHALLENGE -->
+        <!-- ========================================================================= -->
+        <section id="challenge" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-red-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Challenge</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                            Challenge
+                        </h2>
+                        <div class="space-y-4 text-slate-600 text-base leading-relaxed">
+                            <p><strong class="text-slate-900">01. Unrewarded Time:</strong> Players spend hours without financial benefits, leading to wasted time and lost opportunities.</p>
+                            <p><strong class="text-slate-900">02. Uncontrolled Dopamine Spikes:</strong> Traditional gaming models rely on unpredictable rewards, creating addiction-driven behaviors.</p>
+                            <p><strong class="text-slate-900">03. Lack of Transparency & Fairness:</strong> Opaque algorithms make it difficult for players to trust the system or verify wins.</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <img src="./assets/challenges-removebg-preview.png" alt="The Challenge Illustration" class="w-full max-w-md h-auto object-contain drop-shadow-2xl animate-rolling">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- SOLUTION -->
+        <!-- ========================================================================= -->
+        <section id="solution" class="py-20 sm:py-28 bg-slate-50 border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-emerald-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Solution</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                    <div class="lg:col-span-5 flex justify-center order-2 lg:order-1">
+                        <img src="./assets/startten_man_phone.png" alt="Startten Solutions Illustration" class="w-full max-w-md h-auto object-contain drop-shadow-xl">
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                        <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                            Solution
+                        </h2>
+                        <div class="space-y-4 text-slate-600 text-base leading-relaxed">
+                            <p><strong class="text-slate-900">01. Earn by Beating Time:</strong> STARTTEN rewards users for acting fast, winning 50% of the profit sharing instantly.</p>
+                            <p><strong class="text-slate-900">02. Transparent & Verified System:</strong> Built on picosecond technology, ensuring fairness with real-time leaderboards.</p>
+                            <p><strong class="text-slate-900">03. Controlled & Risk-Free Platform:</strong> Offering 144 chances to win every day (every 10 minutes) with entry at ₹10.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PRODUCT EXPERIENCE -->
+        <!-- ========================================================================= -->
+        <section id="product-experience" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-purple-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Product Experience</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                            Product Experience
+                        </h2>
+                        <p class="text-slate-600 text-lg leading-relaxed">
+                            A seamless 4-step contest experience designed for maximum engagement: Login & Register, Join Event (₹10 entry), 10-Minute Draw Engine, and Instant Winner Payout directly to bank wallet.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <img src="./assets/product'.gif" alt="Product Experience Illustration" class="w-full max-w-md h-auto object-contain drop-shadow-xl">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PLATFORM HIGHLIGHTS (3D COVERFLOW CAROUSEL & DYNAMIC CONTENT ENGINE) -->
+        <!-- ========================================================================= -->
+        <section id="platform-highlights" class="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-100 relative overflow-hidden">
+            
+            <!-- Ambient Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-sky-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Platform Highlights</span>
+                </div>
+
+                <div class="space-y-4 text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                        Platform Highlights
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg">
+                        Discover the core pillars driving STARTTEN — from multi-billion dollar market opportunity to automated daily draws, startup reinvestment, and zero-cost franchise empowerment.
+                    </p>
+                </div>
+
+                <!-- 3D COVERFLOW CAROUSEL CONTAINER -->
+                <div id="coverflowCarouselContainer" class="w-full relative py-6">
+
+                    <!-- 3D CAROUSEL STAGE -->
+                    <div id="coverflowFrame" tabIndex="0"
+                        class="cursor-grab overflow-hidden py-10 outline-none active:cursor-grabbing select-none relative"
+                        style="perspective: 900px; touch-action: pan-y;">
+                        <div id="coverflowStage" class="relative select-none h-[260px] sm:h-[300px] md:h-[340px]"
+                            style="transform-style: preserve-3d;">
+                            <!-- Coverflow Cards injected by JS engine -->
+                        </div>
+                    </div>
+
+                    <!-- NAVIGATION CHEVRON BUTTONS -->
+                    <button id="cfPrevBtn" type="button" aria-label="Previous slide"
+                        class="absolute left-2 sm:left-6 top-1/3 z-[200] -translate-y-1/2 rounded-full bg-slate-900/80 p-3.5 text-white backdrop-blur transition hover:bg-[#E61E2B] border border-white/20 shadow-xl opacity-90 hover:opacity-100 cursor-pointer">
+                        <i class="fa-solid fa-chevron-left text-base"></i>
+                    </button>
+                    <button id="cfNextBtn" type="button" aria-label="Next slide"
+                        class="absolute right-2 sm:right-6 top-1/3 z-[200] -translate-y-1/2 rounded-full bg-slate-900/80 p-3.5 text-white backdrop-blur transition hover:bg-[#E61E2B] border border-white/20 shadow-xl opacity-90 hover:opacity-100 cursor-pointer">
+                        <i class="fa-solid fa-chevron-right text-base"></i>
+                    </button>
+
+                    <!-- PAGINATION DOTS -->
+                    <div id="cfPagination" class="mt-4 flex items-center justify-center gap-2.5">
+                        <!-- Dots injected by JS -->
+                    </div>
+
+                </div>
+
+                <!-- DYNAMIC CONTENT BELOW CAROUSEL (CLEAN BORDERLESS CONTENT ONLY) -->
+                <div class="max-w-4xl mx-auto space-y-6 pt-4 text-center sm:text-left transition-all duration-300">
+                    <div class="space-y-2">
+                        <div class="inline-block px-3.5 py-1 bg-red-100 text-[#E61E2B] rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-1" id="cfActiveBadge">
+                            STARTTEN INNOVATION
+                        </div>
+                        <h3 id="cfActiveTitle" class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-sans">
+                            $8.65B Market Opportunity
+                        </h3>
+                        <p id="cfActiveSubtitle" class="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+                            Targeting a 20% share of India's rapidly expanding real-money gaming and online prediction market.
+                        </p>
+                    </div>
+
+                    <!-- METADATA GRID (CLEAN TEXT WITHOUT CARD BORDERS) -->
+                    <div id="cfActiveMeta" class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-slate-200/80">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- TECHNOLOGY STACK ARCHITECTURE -->
+        <!-- ========================================================================= -->
+        <section id="tech-stack" class="py-20 sm:py-28 bg-white border-b border-slate-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-indigo-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Technology Stack Architecture</span>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                        Technology Stack Architecture
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg max-w-3xl">
+                        Engineered with React, Next.js, Tailwind CSS, Node.js, Express, Redis, and a Centralized Administrative Console for maximum speed, picosecond precision, and automated ledger operations.
+                    </p>
+                </div>
+
+                <!-- TRANSPARENT ICON & WORD STREAM WITH MOVING ANIMATION EFFECT -->
+                <div class="py-8 relative overflow-hidden w-full">
+                    <div class="animate-marquee space-x-12 sm:space-x-16 flex items-center">
+                        
+                        <!-- BATCH 1 -->
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_react_official.png" alt="React" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">React</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_nextjs_official.png" alt="Next.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Next.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_tailwind_official.png" alt="Tailwind CSS" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Tailwind CSS</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_nodejs_official.png" alt="Node.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Node.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_express_official.png" alt="Express.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Express.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_redis_official.png" alt="Redis Cache" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Redis</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_admin_console.png" alt="Admin Console" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Admin Console</span>
+                        </div>
+
+                        <!-- BATCH 2 (DUPLICATED FOR SEAMLESS INFINITE LOOP) -->
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_react_official.png" alt="React" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">React</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_nextjs_official.png" alt="Next.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Next.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_tailwind_official.png" alt="Tailwind CSS" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Tailwind CSS</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_nodejs_official.png" alt="Node.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Node.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_express_official.png" alt="Express.js" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Express.js</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_redis_official.png" alt="Redis Cache" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Redis</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5 flex-shrink-0 group hover:scale-110 transition-transform duration-300">
+                            <img src="./assets/tech_admin_console.png" alt="Admin Console" class="h-10 sm:h-14 w-auto object-contain">
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">Admin Console</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- DEVELOPMENT SCOPE -->
+        <!-- ========================================================================= -->
+        <section id="dev-scope" class="py-20 sm:py-28 bg-slate-50 border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-amber-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Development Scope</span>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                        Development Scope
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- CARD 1: MR. B. MUTHUPANDIYARAJA -->
+                    <div class="space-y-3">
+                        <h3 class="text-3xl sm:text-5xl font-black text-slate-900 font-sans tracking-tight">Mr. B. Muthupandiyaraja</h3>
+                        <p class="text-xl sm:text-2xl font-black text-[#E61E2B] tracking-tight font-sans">
+                            Founder & CEO — STARTTEN
+                        </p>
+                    </div>
+
+                    <!-- CARD 2: G. DINESH -->
+                    <div class="space-y-3">
+                        <h3 class="text-3xl sm:text-5xl font-black text-slate-900 font-sans tracking-tight">G. Dinesh</h3>
+                        <p class="text-xl sm:text-2xl font-black text-brand-blue tracking-tight font-sans">
+                            Technical Head at STARTTEN & Founder of DhiGrowth
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- RESULTS -->
+        <!-- ========================================================================= -->
+        <section id="results" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full bg-emerald-100 text-[#E61E2B] text-xs font-bold tracking-wider">
+                    <span>Results</span>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-4xl sm:text-6xl font-black text-[#E61E2B] leading-tight font-sans">
+                        Results
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="text-5xl font-black text-brand-blue font-sans"><span class="counter-num" data-target="8640">0</span>+</div>
+                        <div class="text-xs text-slate-500 uppercase font-mono font-bold pt-1">Contests / Month</div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="text-5xl font-black text-emerald-600 font-sans"><span class="counter-num" data-target="100">0</span>%</div>
+                        <div class="text-xs text-slate-500 uppercase font-mono font-bold pt-1">Verifiable Ledger</div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="text-5xl font-black text-amber-600 font-sans"><span class="counter-num" data-target="50">0</span>%</div>
+                        <div class="text-xs text-slate-500 uppercase font-mono font-bold pt-1">Public Profit Share</div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="text-5xl font-black text-purple-600 font-sans"><span class="counter-num" data-target="90">0</span>%</div>
+                        <div class="text-xs text-slate-500 uppercase font-mono font-bold pt-1">Startup Reinvestment</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PRE-FOOTER: "Startten Website is Available Live!" SHOWCASE WITH CONFETTI (WITH CLEAR GAP ABOVE FOOTER) -->
+        <!-- ========================================================================= -->
+        <section id="app-is-live-section"
+            class="py-24 bg-[#05080C] text-white relative overflow-hidden w-full mb-16 border-none">
+
+            <!-- Confetti Canvas Embedded inside Section -->
+            <canvas id="confetti-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+            <!-- CSS CONFETTI SIDE CANNONS -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                <div class="cannon-particle-left w-3 h-3 bg-[#a786ff] rounded-sm" style="animation-delay: 0s;"></div>
+                <div class="cannon-particle-left w-2.5 h-4 bg-[#fd8bbc] rotate-45" style="animation-delay: 0.5s;"></div>
+                <div class="cannon-particle-left w-3 h-2 bg-[#eca184] -rotate-12" style="animation-delay: 1.0s;"></div>
+                <div class="cannon-particle-left w-3.5 h-3.5 rounded-full bg-[#f8deb1]" style="animation-delay: 1.5s;"></div>
+
+                <div class="cannon-particle-right w-3 h-3 bg-[#fd8bbc] rounded-sm" style="animation-delay: 0.2s;"></div>
+                <div class="cannon-particle-right w-3 h-4 bg-[#a786ff] -rotate-45" style="animation-delay: 0.7s;"></div>
+                <div class="cannon-particle-right w-2.5 h-2.5 rounded-full bg-[#10b981]" style="animation-delay: 1.2s;"></div>
+                <div class="cannon-particle-right w-3.5 h-2 bg-[#f8deb1] rotate-30" style="animation-delay: 1.7s;"></div>
+
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+            </div>
+
+            <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-20 space-y-8 py-8">
+
+                <!-- TITLE & SUBTITLE -->
+                <div class="space-y-3">
+                    <h2 class="font-sans text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight">
+                        Startten Website is Available Live!
+                    </h2>
+                    <p class="text-slate-300 text-base sm:text-xl font-normal leading-relaxed max-w-2xl mx-auto">
+                        Experience India's only advanced public partnership and time-based prediction platform live now.
+                    </p>
+                </div>
+
+                <!-- 🎉 Website is Live! Badge 🎉 -->
+                <div onclick="triggerSideCannons()"
+                    class="inline-flex items-center space-x-3 px-7 py-3.5 rounded-full bg-[#0A0F17] hover:bg-[#121B2B] border border-red-500/50 text-red-400 text-lg sm:text-xl font-extrabold shadow-[0_0_35px_rgba(220,38,38,0.35)] cursor-pointer transform transition hover:scale-105">
+                    <span class="text-2xl animate-bounce"></span>
+                    <span
+                        class="bg-gradient-to-r from-red-400 via-rose-300 to-amber-300 bg-clip-text text-transparent tracking-wide">Website
+                        is Live!</span>
+                    <span class="text-2xl animate-bounce">🎉</span>
+                </div>
+
+                <!-- Direct Website Link Button -->
+                <div class="flex items-center justify-center pt-4">
+                    <a href="https://test.startten.com/" target="_blank" rel="noopener noreferrer" onclick="triggerSideCannons()"
+                        class="inline-flex items-center space-x-4 px-10 py-5 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-lg shadow-2xl transition-all transform hover:-translate-y-1">
+                        <span>Visit Live Website (test.startten.com)</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-base"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- FOOTER (EXACT MATCH TO CLEAN CULTURE FOOTER) -->
+    <!-- ========================================================================= -->
+    <footer id="contact" class="bg-[#05080C] text-slate-300 pt-12 pb-8 w-full border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+
+                <!-- COLUMN 1: DHIGROWTH BRAND & ABOUT -->
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="index.html" class="inline-block py-1">
+                        <img src="./assets/dhigrowth_logo.png" alt="DhiGrowth Logo"
+                            class="h-10 w-auto object-contain filter brightness-110">
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        Coimbatore's Leading Digital Growth Partner — Technology, Marketing & AI under one roof.
+                    </p>
+
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center border border-slate-800">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center border border-slate-800">
+                            <i class="fa-brands fa-linkedin-in text-base"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center border border-slate-800">
+                            <i class="fa-brands fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-xl bg-slate-900 text-slate-300 hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center border border-slate-800">
+                            <i class="fa-brands fa-youtube text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: SERVICES -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white text-xs font-heading tracking-widest text-brand-blue uppercase">SERVICES</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">Website Development</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">App Development</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">AI Development</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">AI Automation</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">WhatsApp Marketing</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">SEO Services</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">Meta & Google Ads</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: COMPANY -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-white text-xs font-heading tracking-widest text-brand-blue uppercase">COMPANY</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">About DhiGrowth</a></li>
+                        <li><a href="index.html#why-us" class="hover:text-white transition-colors">Why Choose Us</a></li>
+                        <li><a href="index.html#process" class="hover:text-white transition-colors">Our Process</a></li>
+                        <li><a href="index.html#services" class="hover:text-white transition-colors">Industries</a></li>
+                        <li><a href="index.html#clients" class="hover:text-white transition-colors">Client Reviews</a></li>
+                        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 4: CONTACT -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-white text-xs font-heading tracking-widest text-brand-blue uppercase">CONTACT</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-blue mt-1"></i>
+                            <span>Coimbatore, Tamil Nadu, India</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-brand-blue"></i>
+                            <span class="font-numeric">+91 99999 99999</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-brand-blue"></i>
+                            <span>hello@dhigrowth.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM COPYRIGHT BAR -->
+            <div
+                class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 space-y-4 md:space-y-0 font-numeric">
+                <div>
+                    © 2024 DhiGrowth. All rights reserved. | <span class="text-slate-400">Coimbatore's Leading Digital Agency</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // LOGO VIDEO PLAYBACK SPEED CONTROL
+        const logoVideo = document.getElementById('logoVideo');
+        if (logoVideo) {
+            logoVideo.playbackRate = 1.35;
+            logoVideo.addEventListener('canplay', () => {
+                logoVideo.playbackRate = 1.35;
+            });
+        }
+
+        // VIDEO CONTROLS
+        function toggleVideoMute() {
+            const video = document.getElementById('cleanCultureVideo');
+            const muteIcon = document.getElementById('muteIcon');
+            if (video) {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteIcon.className = 'fa-solid fa-volume-xmark text-sm';
+                } else {
+                    muteIcon.className = 'fa-solid fa-volume-high text-sm text-red-500';
+                }
+            }
+        }
+
+        // NUMBER COUNTER ANIMATION ENGINE
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter-num');
+            const speed = 25;
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const inc = Math.max(1, Math.ceil(target / 40));
+
+                const update = () => {
+                    count += inc;
+                    if (count < target) {
+                        counter.innerText = count.toLocaleString();
+                        setTimeout(update, speed);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                update();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(c => observer.observe(c));
+        });
+
+        // CONFETTI SIDE CANNONS ANIMATION ENGINE
+        let confettiInstance = null;
+        let animationFrameId = null;
+        let isConfettiActive = false;
+
+        function initConfettiCanvas() {
+            const canvas = document.getElementById('confetti-canvas');
+            if (canvas && typeof confetti !== 'undefined') {
+                confettiInstance = confetti.create(canvas, {
+                    resize: true,
+                    useWorker: true
+                });
+            }
+        }
+
+        function triggerSideCannons() {
+            const canvas = document.getElementById('confetti-canvas');
+            if (!confettiInstance && canvas && typeof confetti !== 'undefined') {
+                initConfettiCanvas();
+            }
+
+            const fire = confettiInstance || confetti;
+            if (typeof fire !== 'function') return;
+
+            const end = Date.now() + 3.5 * 1000;
+            const colors = ["#ef4444", "#dc2626", "#a786ff", "#fd8bbc", "#facc15", "#38bdf8"];
+
+            isConfettiActive = true;
+
+            const frame = () => {
+                if (!isConfettiActive || Date.now() > end) {
+                    stopSideCannons();
+                    return;
+                }
+
+                fire({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    startVelocity: 55,
+                    origin: { x: 0, y: 0.6 },
+                    colors: colors
+                });
+
+                fire({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    startVelocity: 55,
+                    origin: { x: 1, y: 0.6 },
+                    colors: colors
+                });
+
+                animationFrameId = requestAnimationFrame(frame);
+            };
+
+            frame();
+        }
+
+        function stopSideCannons() {
+            isConfettiActive = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            if (confettiInstance && typeof confettiInstance.reset === 'function') {
+                confettiInstance.reset();
+            }
+        }
+
+        // =========================================================================
+        // 3D COVERFLOW CAROUSEL & DYNAMIC CONTENT ENGINE FOR STARTTEN HIGHLIGHTS
+        // =========================================================================
+        const STARTTEN_COVERFLOW_SLIDES = [
+            {
+                src: "./assets/highlight_market_val.png",
+                alt: "$8.65B Market Opportunity",
+                badge: "MARKET VALIDATION",
+                title: "$8.65B Market Opportunity",
+                subtitle: "Targeting a 20% share of India's rapidly expanding real-money gaming and online prediction market.",
+                meta: [
+                    { label: "Market Size", value: "$8.65 Billion USD" },
+                    { label: "Target Share", value: "20% Market Share" },
+                    { label: "Sector", value: "Real-Money Prediction" }
+                ]
+            },
+            {
+                src: "./assets/highlight_daily_draws.png",
+                alt: "144 Daily Contests",
+                badge: "24×7 ENGINE",
+                title: "144 Daily Contests & Draws",
+                subtitle: "Continuous 10-minute prediction cycles operating automatically 24x7 with instant winner payouts.",
+                meta: [
+                    { label: "Daily Contests", value: "144 Contests / Day" },
+                    { label: "Round Frequency", value: "10-Minute Cycles" },
+                    { label: "Settlement", value: "Instant Auto-Payout" }
+                ]
+            },
+            {
+                src: "./assets/highlight_startup_fund.png",
+                alt: "90% Startup Reinvestment",
+                badge: "VENTURES",
+                title: "90% Startup Reinvestment",
+                subtitle: "Platform profits are directly channeled into funding early-stage Indian startups and technological innovation.",
+                meta: [
+                    { label: "Reinvestment", value: "90% Net Profit" },
+                    { label: "Target", value: "Early-Stage Startups" },
+                    { label: "Impact", value: "Founder Ecosystem" }
+                ]
+            },
+            {
+                src: "./assets/highlight_franchise.png",
+                alt: "Zero-Cost Franchise",
+                badge: "FRANCHISE",
+                title: "Zero-Cost Franchise Network",
+                subtitle: "Empowering strategic regional partners to build high-yield public networks with zero upfront franchise fees.",
+                meta: [
+                    { label: "Upfront Fee", value: "₹0 Free Access" },
+                    { label: "Partnership", value: "Public Revenue Share" },
+                    { label: "Expansion", value: "Pan-India Reach" }
+                ]
+            }
+        ];
+
+        (function initStarttenCoverflowCarousel() {
+            const frame = document.getElementById('coverflowFrame');
+            const stage = document.getElementById('coverflowStage');
+            const prevBtn = document.getElementById('cfPrevBtn');
+            const nextBtn = document.getElementById('cfNextBtn');
+            const pagination = document.getElementById('cfPagination');
+            const badgeEl = document.getElementById('cfActiveBadge');
+            const titleEl = document.getElementById('cfActiveTitle');
+            const subtitleEl = document.getElementById('cfActiveSubtitle');
+            const metaEl = document.getElementById('cfActiveMeta');
+
+            if (!frame || !stage) return;
+
+            const count = STARTTEN_COVERFLOW_SLIDES.length;
+            const rotate = 44;
+            const depth = 0.6;
+            const falloff = 0.56;
+            const fade = 0.1;
+            const gap = 0.08;
+            const loop = true;
+
+            let pos = 0;
+            let targetPos = 0;
+            let width = 0;
+            let rafId = null;
+            let dragInfo = null;
+            let selectedIndex = 0;
+            let autoTimer = null;
+
+            const cards = [];
+
+            // Build DOM elements for slides
+            STARTTEN_COVERFLOW_SLIDES.forEach((slide, idx) => {
+                const card = document.createElement('div');
+                card.className = 'absolute left-1/2 top-0 aspect-square overflow-hidden rounded-3xl bg-white p-6 shadow-2xl transition-all duration-300 border border-slate-200 will-change-transform cursor-pointer group flex items-center justify-center';
+                card.style.width = 'clamp(220px, 28vw, 310px)';
+
+                const img = document.createElement('img');
+                img.src = slide.src;
+                img.alt = slide.alt;
+                img.draggable = false;
+                img.className = 'h-full w-auto max-h-[80%] select-none object-contain transition-transform duration-500 group-hover:scale-110';
+
+                card.appendChild(img);
+                card.addEventListener('click', () => goTo(idx));
+                stage.appendChild(card);
+                cards.push(card);
+            });
+
+            // Build Pagination Dots
+            pagination.innerHTML = '';
+            const dots = [];
+            STARTTEN_COVERFLOW_SLIDES.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.ariaLabel = `Go to slide ${idx + 1}`;
+                dot.className = `h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === 0 ? 'w-7 bg-red-600 shadow-md' : 'w-2.5 bg-slate-300 hover:bg-slate-400'}`;
+                dot.addEventListener('click', () => goTo(idx));
+                pagination.appendChild(dot);
+                dots.push(dot);
+            });
+
+            function indexAt(p) {
+                return ((Math.round(p) % count) + count) % count;
+            }
+
+            function paint() {
+                if (!width && cards[0]) {
+                    width = cards[0].offsetWidth;
+                }
+                if (!width) return;
+
+                const pitch = width * (1 + gap);
+
+                cards.forEach((card, idx) => {
+                    let offset = idx - pos;
+                    if (loop) {
+                        offset = ((offset % count) + count) % count;
+                        if (offset > count / 2) offset -= count;
+                    }
+
+                    const distance = Math.abs(offset);
+                    const ramp = Math.pow(distance, falloff);
+                    const tilt = Math.min(rotate * ramp, 82) * Math.sign(offset);
+
+                    card.style.transform = `translateX(calc(-50% + ${offset * pitch}px)) translateZ(${-depth * width * ramp}px) rotateY(${-tilt}deg)`;
+
+                    const edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
+                    card.style.opacity = String(Math.max(0, 1 - fade * distance) * edge);
+                    card.style.zIndex = String(100 - Math.round(distance));
+                });
+            }
+
+            function updateCaption(idx) {
+                const slide = STARTTEN_COVERFLOW_SLIDES[idx];
+                if (!slide) return;
+
+                if (badgeEl) badgeEl.textContent = slide.badge || 'STARTTEN INNOVATION';
+                if (titleEl) titleEl.textContent = slide.title;
+                if (subtitleEl) subtitleEl.textContent = slide.subtitle;
+
+                if (dots) {
+                    dots.forEach((d, i) => {
+                        if (i === idx) {
+                            d.className = 'h-2.5 w-7 rounded-full bg-red-600 shadow-md transition-all duration-300 cursor-pointer';
+                        } else {
+                            d.className = 'h-2.5 w-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer';
+                        }
+                    });
+                }
+
+                if (metaEl && slide.meta) {
+                    metaEl.innerHTML = slide.meta.map(row => `
+                        <div class="space-y-1">
+                            <span class="text-xs text-slate-500 font-bold uppercase tracking-wider block">${row.label}</span>
+                            <span class="text-xl font-black text-slate-900 font-sans tracking-tight block">${row.value}</span>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            function settle(target) {
+                if (rafId !== null) cancelAnimationFrame(rafId);
+                targetPos = target;
+                const newIdx = indexAt(target);
+                if (newIdx !== selectedIndex) {
+                    selectedIndex = newIdx;
+                    updateCaption(selectedIndex);
+                }
+
+                const step = () => {
+                    const remaining = targetPos - pos;
+                    if (Math.abs(remaining) < 0.0004) {
+                        pos = targetPos;
+                        paint();
+                        rafId = null;
+                        return;
+                    }
+                    pos += remaining * 0.16;
+                    paint();
+                    rafId = requestAnimationFrame(step);
+                };
+                rafId = requestAnimationFrame(step);
+            }
+
+            function clamp(p) {
+                return loop ? p : Math.max(0, Math.min(count - 1, p));
+            }
+
+            function goTo(idx) {
+                const target = loop
+                    ? idx + Math.round((targetPos - idx) / count) * count
+                    : idx;
+                settle(clamp(target));
+            }
+
+            function nudge(by) {
+                settle(clamp(Math.round(targetPos) + by));
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { resetAutoTimer(); nudge(-1); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { resetAutoTimer(); nudge(1); });
+
+            // Pointer drag events
+            frame.addEventListener('pointerdown', (e) => {
+                if (rafId !== null) cancelAnimationFrame(rafId);
+                frame.setPointerCapture(e.pointerId);
+                targetPos = pos;
+                dragInfo = {
+                    id: e.pointerId,
+                    x: e.clientX,
+                    pos: pos,
+                    v: 0,
+                    t: performance.now()
+                };
+                stopAutoTimer();
+            });
+
+            frame.addEventListener('pointermove', (e) => {
+                if (!dragInfo || dragInfo.id !== e.pointerId) return;
+                const pitch = width * (1 + gap);
+                if (!pitch) return;
+
+                const now = performance.now();
+                const prev = pos;
+                pos = clamp(dragInfo.pos - (e.clientX - dragInfo.x) / pitch);
+                dragInfo.v = ((pos - prev) / Math.max(now - dragInfo.t, 1)) * 1000;
+                dragInfo.t = now;
+
+                const currentIdx = indexAt(pos);
+                if (currentIdx !== selectedIndex) {
+                    selectedIndex = currentIdx;
+                    updateCaption(selectedIndex);
+                }
+                paint();
+            });
+
+            const endDrag = (e) => {
+                if (!dragInfo || dragInfo.id !== e.pointerId) return;
+                dragInfo = null;
+                const carried = Math.max(-2, Math.min(2, dragInfo.v * 0.18));
+                settle(clamp(Math.round(pos + carried)));
+                startAutoTimer();
+            };
+
+            frame.addEventListener('pointerup', endDrag);
+            frame.addEventListener('pointercancel', endDrag);
+
+            frame.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { e.preventDefault(); resetAutoTimer(); nudge(-1); }
+                else if (e.key === 'ArrowRight') { e.preventDefault(); resetAutoTimer(); nudge(1); }
+            });
+
+            // Resize Observer to adjust card width
+            const resizeObserver = new ResizeObserver(() => {
+                if (cards[0]) {
+                    width = cards[0].offsetWidth;
+                    paint();
+                }
+            });
+            resizeObserver.observe(frame);
+
+            // Auto Play Timer
+            function startAutoTimer() {
+                stopAutoTimer();
+                autoTimer = setInterval(() => {
+                    nudge(1);
+                }, 3800);
+            }
+
+            function stopAutoTimer() {
+                if (autoTimer) clearInterval(autoTimer);
+            }
+
+            function resetAutoTimer() {
+                stopAutoTimer();
+                startAutoTimer();
+            }
+
+            frame.addEventListener('mouseenter', stopAutoTimer);
+            frame.addEventListener('mouseleave', startAutoTimer);
+
+            // Initial Paint & Caption
+            width = cards[0] ? cards[0].offsetWidth : 280;
+            paint();
+            updateCaption(0);
+            startAutoTimer();
+        })();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initConfettiCanvas();
+            const section = document.getElementById('app-is-live-section');
+            if (section && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            triggerSideCannons();
+                        } else {
+                            stopSideCannons();
+                        }
+                    });
+                }, { threshold: 0.15 });
+                observer.observe(section);
+            }
+        });
+    </script>
+</body>
+
+</html>
