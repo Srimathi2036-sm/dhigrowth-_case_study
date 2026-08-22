@@ -53,6 +53,23 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <style>
+        /* CONVERTED FROM FRAMER MOTION BLUR-FADE */
+        .blur-fade-item {
+            opacity: 0;
+            filter: blur(8px);
+            transform: translateY(8px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                        filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, filter, transform;
+        }
+
+        .blur-fade-item.in-view {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(0px);
+        }
+
         /* SIDE CANNONS CONFETTI CSS ANIMATION */
         @keyframes sideCannonLeft {
             0% {
@@ -855,7 +872,7 @@
         <!-- CLEAN CULTURE CASE STUDY SECTION -->
         <!-- ========================================================================= -->
         <section id="clean-culture-section"
-            class="py-10 sm:py-12 bg-white border-t border-slate-100 relative overflow-hidden">
+            class="py-6 sm:py-8 bg-white border-t border-slate-100 relative overflow-hidden">
             <div id="about" class="absolute -top-28"></div>
 
             <!-- WATERMARK TEXT -->
@@ -965,7 +982,7 @@
         <!-- ========================================================================= -->
         <!-- VIDEO OVERVIEW & KEY TECHNICAL CHALLENGES SECTION -->
         <!-- ========================================================================= -->
-        <section id="video-overview" class="w-full bg-slate-950 text-white py-14 sm:py-20 border-b border-slate-800 relative overflow-hidden">
+        <section id="video-overview" class="w-full bg-slate-950 text-white py-6 sm:py-8 border-b border-slate-800 relative overflow-hidden">
             <!-- Subtle background accent glow -->
             <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1020,7 +1037,7 @@
         <!-- ========================================================================= -->
         <!-- THE SOLUTION SECTION (WHITE THEME WITH MOVING BORDER GLOW & FLOATING ICONS) -->
         <!-- ========================================================================= -->
-        <section id="solution-overview" class="w-full bg-white text-slate-900 py-12 sm:py-16 border-b border-slate-200 relative overflow-hidden">
+        <section id="solution-overview" class="w-full bg-white text-slate-900 py-6 sm:py-8 border-b border-slate-200 relative overflow-hidden">
             <!-- Ambient Background Accent Glow -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -1136,9 +1153,9 @@
                 </div>
 
                 <!-- PRODUCT EXPERIENCE TOPIC (WIDE CONTAINER WITH LEFT IMAGE & 4 RIGHT CARDS) -->
-                <div class="mt-16 sm:mt-24 max-w-7xl mx-auto">
+                <div class="mt-6 sm:mt-8 max-w-7xl mx-auto">
                     <!-- SECTION TITLE -->
-                    <div class="text-center max-w-3xl mx-auto mb-12">
+                    <div class="text-center max-w-3xl mx-auto mb-4 sm:mb-5">
                         <h2 class="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-slate-900 tracking-wide mb-3">
                             Product Experience
                         </h2>
@@ -1154,9 +1171,8 @@
                         <!-- LEFT SIDE: Cutout Image asset (LARGER DISPLAY) -->
                         <div class="lg:col-span-5 flex justify-center items-center">
                             <div class="relative w-full max-w-md lg:max-w-lg flex items-center justify-center p-2 group">
-                                <div class="absolute inset-0 bg-brand-blue/10 rounded-3xl blur-3xl pointer-events-none"></div>
                                 <img src="./assets/image.png" alt="Product Experience Clean Culture"
-                                    class="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain transition-transform duration-700 group-hover:scale-105 relative z-10 drop-shadow-2xl">
+                                    class="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain transition-transform duration-700 group-hover:scale-105 relative z-10">
                             </div>
                         </div>
 
@@ -1262,7 +1278,7 @@
         <!-- HIGHLIGHTS (3D COVERFLOW CAROUSEL SHOWCASE & INTERACTIVE CARDS) -->
         <!-- ========================================================================= -->
         <section
-            class="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 overflow-hidden relative">
+            class="py-6 sm:py-8 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 overflow-hidden relative">
 
             <!-- Ambient Background Accent Glows -->
             <div
@@ -1369,7 +1385,7 @@
         <!-- ========================================================================= -->
         <!-- TECHNOLOGY STACK SECTION (INFINITE MOVING MARQUEE EFFECT) -->
         <!-- ========================================================================= -->
-        <section id="tech-stack" class="w-full bg-white text-slate-900 py-16 sm:py-20 border-b border-slate-200 overflow-hidden relative">
+        <section id="tech-stack" class="w-full bg-white text-slate-900 py-6 sm:py-8 border-b border-slate-200 overflow-hidden relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
                 <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-wide mb-3">
                     Technology Stack
@@ -1471,7 +1487,7 @@
         <!-- ========================================================================= -->
         <!-- SCOPE INTERACTIVE TIMELINE SECTION (WHITE BACKGROUND, COMPACT CARD & ARC ANIMATION) -->
         <!-- ========================================================================= -->
-        <section id="scope" class="bg-white text-slate-900 h-auto relative w-full overflow-hidden flex items-center justify-center py-12 lg:py-16 border-b border-slate-200/80">
+        <section id="scope" class="bg-white text-slate-900 h-auto relative w-full overflow-hidden flex items-center justify-center py-6 lg:py-8 border-b border-slate-200/80">
             
             <!-- Background Arc (from Framer Motion component design) -->
             <div class="rounded-full border-solid border-[rgba(74,114,232,0.06)] border-[40px] lg:border-[80px] w-[500px] h-[500px] lg:w-[950px] lg:h-[950px] absolute left-[50%] lg:left-[-400px] bottom-[-200px] lg:bottom-auto lg:top-[50%] -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 pointer-events-none z-0"></div>
@@ -1530,25 +1546,24 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- RESULTS SECTION (GRAND DARK NARRATIVE CONTAINER & METRIC COUNTER CARDS) -->
+        <!-- RESULTS / CLIENT TESTIMONIAL SECTION (BG: #F7FBFB - ENLARGED CONTAINER) -->
         <!-- ========================================================================= -->
-        <section id="results" class="bg-white text-slate-900 py-16 sm:py-24 relative w-full overflow-hidden border-b border-slate-200/80">
+        <section id="results" class="bg-[#F7FBFB] text-slate-900 pt-6 sm:pt-8 pb-6 sm:pb-8 relative w-full overflow-hidden border-t border-slate-200/60">
             
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10 w-full">
                 
-                <!-- SECTION TITLE (BLACK HEADING) -->
-                <div class="mb-10 sm:mb-14">
-                    <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-black tracking-tight">
+                <!-- SECTION TITLE (BLACK HEADING, CENTER ALIGNED) -->
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                    <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight">
                         Results
                     </h2>
-                    <div class="w-16 h-1.5 bg-black rounded-full mt-3"></div>
                 </div>
 
-                <!-- 4 ANIMATED METRIC CARDS GRID (FROM REFERENCE IMAGE) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 sm:mb-16">
+                <!-- 4 ANIMATED METRIC CARDS GRID -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 sm:mb-16">
                     
                     <!-- Card 1: Contests / Month -->
-                    <div class="bg-slate-50/80 sm:bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="text-4xl sm:text-5xl font-extrabold text-[#3B82F6] font-sans tracking-tight mb-2">
                             <span class="results-counter" data-target="8640" data-suffix="+">0</span>
                         </div>
@@ -1558,7 +1573,7 @@
                     </div>
 
                     <!-- Card 2: Verifiable Ledger -->
-                    <div class="bg-slate-50/80 sm:bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="text-4xl sm:text-5xl font-extrabold text-[#059669] font-sans tracking-tight mb-2">
                             <span class="results-counter" data-target="100" data-suffix="%">0</span>
                         </div>
@@ -1568,7 +1583,7 @@
                     </div>
 
                     <!-- Card 3: Public Profit Share -->
-                    <div class="bg-slate-50/80 sm:bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="text-4xl sm:text-5xl font-extrabold text-[#D97706] font-sans tracking-tight mb-2">
                             <span class="results-counter" data-target="50" data-suffix="%">0</span>
                         </div>
@@ -1578,7 +1593,7 @@
                     </div>
 
                     <!-- Card 4: Startup Reinvestment -->
-                    <div class="bg-slate-50/80 sm:bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div class="text-4xl sm:text-5xl font-extrabold text-[#9333EA] font-sans tracking-tight mb-2">
                             <span class="results-counter" data-target="90" data-suffix="%">0</span>
                         </div>
@@ -1589,71 +1604,63 @@
 
                 </div>
 
-                <!-- EXACT REPLICATED TORN-PAPER CLIENT SUCCESS STORIES CONTAINER (#2196E8 BRAND COLOR WITH DECKLED TORN PAPER CORNERS & WATERMARK QUOTE ICONS) -->
-                <div class="relative w-full my-6 sm:my-10">
+                <!-- ENLARGED WHITE CARD CONTAINER: LEFT SIDE FLOATING TEXT + RIGHT SIDE VIDEO -->
+                <div class="bg-white border border-slate-200/80 rounded-[36px] shadow-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
                     
-                    <!-- SVG Filter Definition for Authentic Fibrous Torn Paper Edge Noise -->
-                    <svg class="absolute w-0 h-0 pointer-events-none">
-                        <defs>
-                            <filter id="authentic-paper-tear" x="-10%" y="-10%" width="120%" height="120%">
-                                <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" result="noise" />
-                                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
-                            </filter>
-                        </defs>
-                    </svg>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                        
+                        <!-- LEFT SIDE CONTENT (TOPIC, CLIENT NAME, QUOTE, SUMMARY, BADGE) WITH CONVERTED BLUR-FADE ANIMATION -->
+                        <div class="lg:col-span-7 space-y-6">
+                            
+                            <!-- TOP LEFT TOPIC & CLIENT INFO -->
+                            <div class="space-y-2 border-l-4 border-brand-blue pl-4 sm:pl-5">
+                                <span class="blur-fade-item block text-xs sm:text-sm font-extrabold uppercase tracking-widest text-brand-blue font-sans" data-delay="0.1">
+                                    What our clients say
+                                </span>
+                                <h3 class="blur-fade-item text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-sans tracking-tight" data-delay="0.25">
+                                    DhineshKumar
+                                </h3>
+                                <p class="blur-fade-item text-xs sm:text-sm text-slate-500 font-bold uppercase tracking-wider" data-delay="0.4">
+                                    Clean Culture
+                                </p>
+                            </div>
 
-                    <!-- Top Sharp Deckled Torn Paper Edge SVG (Deep Overlap, 100% Solid #2196E8 Color) -->
-                    <div class="w-full overflow-hidden leading-none relative -mb-6 sm:-mb-8 pointer-events-none z-10">
-                        <svg class="relative block w-full h-16 sm:h-24 lg:h-28 text-[#2196E8]" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                            <path filter="url(#authentic-paper-tear)" d="M 0 150 L 0 52 L 12 50 L 25 54 L 38 51 L 50 57 L 62 54 L 75 60 L 88 57 L 100 63 L 112 60 L 125 66 L 138 63 L 150 69 L 162 66 L 175 72 L 188 69 L 200 75 L 212 72 L 225 78 L 238 75 L 250 80 L 262 77 L 275 81 L 288 78 L 300 75 L 312 71 L 325 67 L 338 63 L 350 58 L 362 53 L 375 48 L 388 43 L 400 38 L 412 34 L 425 29 L 438 32 L 450 27 L 462 30 L 475 25 L 488 28 L 500 23 L 512 26 L 525 21 L 538 24 L 550 19 L 562 22 L 575 17 L 588 20 L 600 15 L 612 18 L 625 13 L 638 16 L 650 11 L 662 14 L 675 9 L 688 12 L 700 8 L 712 11 L 725 7 L 738 10 L 750 6 L 762 9 L 775 8 L 788 12 L 800 10 L 812 15 L 825 13 L 838 19 L 850 17 L 862 23 L 875 21 L 888 27 L 900 25 L 912 31 L 925 29 L 938 35 L 950 33 L 962 39 L 975 37 L 988 43 L 1000 40 L 1000 150 Z" fill="currentColor"></path>
-                        </svg>
-                    </div>
+                            <!-- CLIENT SUCCESS STORIES & QUOTE -->
+                            <div class="space-y-4 pt-1">
+                                <h4 class="blur-fade-item text-lg sm:text-xl font-extrabold text-brand-blue font-sans tracking-wide" data-delay="0.55">
+                                    Client success stories
+                                </h4>
 
-                    <!-- Main Container (100% Solid #2196E8 Blue, Zero Gradients or Line Seams) -->
-                    <div class="bg-[#2196E8] text-white px-6 sm:px-12 py-16 sm:py-20 relative z-0 flex flex-col items-center text-center overflow-hidden">
+                                <!-- QUOTE TEXT WITH DECORATIVE QUOTATION MARKS -->
+                                <blockquote class="blur-fade-item text-xl sm:text-2xl lg:text-3xl font-sans font-extrabold text-slate-900 leading-relaxed tracking-tight" data-delay="0.7">
+                                    &ldquo;We didn't just build an e-commerce app. We built a system that turns everyday purchases into an automated habit.&rdquo;
+                                </blockquote>
 
-                        <!-- WATERMARK: THICK BOLD DOUBLE QUOTATION MARK ICON (EXACT SYMBOL FROM USER'S IMAGE) -->
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-                            <svg class="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] text-white fill-current opacity-15 transform -rotate-3" viewBox="0 0 100 100">
-                                <path d="M 28 32 C 15 32 6 43 6 57 C 6 72 17 83 32 83 C 46 83 56 72 56 57 C 56 40 43 18 27 10 L 19 19 C 30 25 39 38 39 51 C 35 49 31 49 28 49 Z" />
-                                <path d="M 72 32 C 59 32 50 43 50 57 C 50 72 61 83 76 83 C 90 83 100 72 100 57 C 100 40 87 18 71 10 L 63 19 C 74 25 83 38 83 51 C 79 49 75 49 72 49 Z" />
-                            </svg>
+                                <!-- REFINED SHORTENED IMPACT SUMMARY -->
+                                <p class="blur-fade-item text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-medium" data-delay="0.85">
+                                    We helped our client turn their vision into a successful digital solution — delivering strong business results and generating lakhs in value and profit.
+                                </p>
+
+                                <!-- HIGHLIGHT TAG -->
+                                <div class="blur-fade-item pt-3" data-delay="1.0">
+                                    <span class="inline-flex items-center px-6 py-3 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-blue font-extrabold text-xs sm:text-sm lg:text-base tracking-wide shadow-md">
+                                        Happy Client. Successful Project. Real Results.
+                                    </span>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <!-- Circular Client Avatar Frame (Top Center) -->
-                        <div class="mb-6 -mt-2 sm:-mt-4 relative z-10">
-                            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white/90 shadow-2xl overflow-hidden bg-white flex items-center justify-center p-0.5 transform hover:scale-105 transition-transform duration-300">
-                                <img src="./assets/client_avatar.png" alt="Client Founder Headshot" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';">
+                        <!-- RIGHT SIDE VIDEO CONTAINER -->
+                        <div class="lg:col-span-5 relative">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 bg-slate-900 group">
+                                <video src="./video/PixVerse_V6_Image_Text_540P_I_didi_t_want_real.mp4" 
+                                    autoplay loop muted playsinline 
+                                    class="w-full h-auto object-cover rounded-3xl transform transition-transform duration-500 group-hover:scale-105">
+                                </video>
                             </div>
                         </div>
 
-                        <!-- Section Title (Client Success Stories) -->
-                        <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[0.2em] text-white mb-6 drop-shadow-md relative z-10">
-                            Client Success Stories
-                        </h3>
-
-                        <!-- Primary Quote Text -->
-                        <blockquote class="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white max-w-3xl leading-snug tracking-tight mb-5 drop-shadow-md relative z-10">
-                            &ldquo;We didn't just build an e-commerce app. We built a system that turns everyday purchases into an automated habit.&rdquo;
-                        </blockquote>
-
-                        <!-- Secondary Client Impact Copy -->
-                        <p class="text-white/95 text-base sm:text-lg lg:text-xl font-sans font-normal max-w-2xl leading-relaxed mb-8 opacity-95 relative z-10">
-                            We helped our client turn their vision into a successful digital solution — delivering strong business results and generating lakhs in value and profit.
-                        </p>
-
-                        <!-- Signature / Cursive Accent Text (Adora Montminy style) -->
-                        <div class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-amber-200 font-semibold tracking-wide drop-shadow-md relative z-10">
-                            Happy Client. Successful Project. Real Results.
-                        </div>
-
-                    </div>
-
-                    <!-- Bottom Sharp Deckled Torn Paper Edge SVG (Deep Overlap, 100% Solid #2196E8 Color) -->
-                    <div class="w-full overflow-hidden leading-none relative -mt-6 sm:-mt-8 pointer-events-none z-10">
-                        <svg class="relative block w-full h-16 sm:h-24 lg:h-28 text-[#2196E8]" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                            <path filter="url(#authentic-paper-tear)" d="M 0 -50 L 1000 -50 L 1000 60 L 988 57 L 975 51 L 962 53 L 950 47 L 938 49 L 925 43 L 912 45 L 900 39 L 888 41 L 875 35 L 862 37 L 850 31 L 838 33 L 825 27 L 812 29 L 800 24 L 788 26 L 775 22 L 762 25 L 750 20 L 738 23 L 725 19 L 712 22 L 700 18 L 688 21 L 675 25 L 662 22 L 650 27 L 638 24 L 625 29 L 612 26 L 600 31 L 588 28 L 575 33 L 562 30 L 550 36 L 538 33 L 525 39 L 512 36 L 500 42 L 488 46 L 475 51 L 462 56 L 450 61 L 438 66 L 425 70 L 412 75 L 400 79 L 388 83 L 375 87 L 362 84 L 350 88 L 338 85 L 325 89 L 312 86 L 300 90 L 288 87 L 275 83 L 262 79 L 250 75 L 238 71 L 225 67 L 212 63 L 200 59 L 188 62 L 175 58 L 162 61 L 150 57 L 138 60 L 125 56 L 112 59 L 100 55 L 88 58 L 75 54 L 62 57 L 50 53 L 38 56 L 25 52 L 12 55 L 0 50 Z" fill="currentColor"></path>
-                        </svg>
                     </div>
 
                 </div>
@@ -1664,7 +1671,7 @@
 
         <!-- PRE-FOOTER: CLEAN CULTURE "APP IS LIVE!" FULL-BLEED SHOWCASE WITH CONFETTI SIDE CANNONS -->
         <section id="app-is-live-section"
-            class="py-20 bg-[#05080C] text-white relative overflow-hidden w-full m-0 p-0 border-none">
+            class="py-8 sm:py-10 bg-[#05080C] text-white relative overflow-hidden w-full m-0 p-0 border-none">
 
             <!-- Confetti Canvas Embedded inside Section Only -->
             <canvas id="confetti-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
@@ -2813,6 +2820,22 @@
                     });
                 }, { threshold: 0.2 });
                 observer.observe(resultsSection);
+            }
+
+            const blurFadeItems = document.querySelectorAll('.blur-fade-item');
+            if (blurFadeItems.length > 0) {
+                const blurFadeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const delay = entry.target.getAttribute('data-delay') || '0';
+                            setTimeout(() => {
+                                entry.target.classList.add('in-view');
+                            }, parseFloat(delay) * 1000);
+                            blurFadeObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                blurFadeItems.forEach(el => blurFadeObserver.observe(el));
             }
         });
 
